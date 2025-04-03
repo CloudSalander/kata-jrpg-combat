@@ -15,15 +15,16 @@ $invocation = new Invocation("Invoke");
 $commands = [$attack,$object,$magic,$invocation];
 
 foreach($commands as $command) {
-    echo $command->execute("Cloud");
-    echo PHP_EOL;
+    echo $command->execute("Cloud").PHP_EOL;
 }
 
 $character1 = new Character("Cloud",7231,453,[$attack,$object]);
 $character2 = new Character("Aeris",2332,871,[$magic,$invocation]);
 $character3 = new Character("Tifa",6231,653,[$attack,$object,$magic]);
 
-var_dump($character1);
-
-
+$characters = [$character1, $character2, $character3];
+foreach($characters as $character) {
+    $character->useCommand(1);
+    echo PHP_EOL;
+}
 ?>
