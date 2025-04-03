@@ -6,6 +6,7 @@ include('classes/commands/Inventory.php');
 include('classes/commands/Magic.php');
 include('classes/commands/Invocation.php');
 include('classes/Character.php');
+include('classes/Party.php');
 
 $attack = new Attack("Attack");
 $object = new Inventory("Object");
@@ -27,4 +28,8 @@ foreach($characters as $character) {
     $character->useCommand(1);
     echo PHP_EOL;
 }
+
+$party = new Party($characters);
+$weakerCharacter = $party->getWeakerCharacter();
+echo "Weaker character is ".$weakerCharacter->getName().PHP_EOL;
 ?>
